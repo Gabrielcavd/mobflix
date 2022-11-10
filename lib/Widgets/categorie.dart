@@ -12,11 +12,11 @@ class categories extends StatelessWidget {
       margin: const EdgeInsets.symmetric(
           horizontal: 10, vertical: 2),
       padding: const EdgeInsets.symmetric(
-          vertical: 5, horizontal: 10),
+          vertical: 8, horizontal: 17),
       decoration: BoxDecoration(
           color: cor,
           borderRadius: BorderRadius.circular(10)),
-      child: Text(texto),
+      child: Text(texto, style: const TextStyle(color: Colors.white),),
     );
   }
 }

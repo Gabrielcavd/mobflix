@@ -16,7 +16,7 @@ class rowCategories extends StatelessWidget {
             categories(texto: 'Aventura', cor: Colors.redAccent),
             categories(texto: 'Romance', cor: Colors.blueAccent),
             categories(texto: 'Ficção', cor: Colors.green),
-            categories(texto: 'Terror', cor: Colors.yellow),
+            categories(texto: 'Terror', cor: Colors.blueGrey),
           ],
         ),
       ),
