@@ -1,8 +1,6 @@
 import 'package:challange_mobile_alura/Widgets/homePage.dart';
+import 'package:challange_mobile_alura/Widgets/videoCardData.dart';
 import 'package:flutter/material.dart';
-import 'Widgets/categorie.dart';
-import 'Widgets/highlight.dart';
-import 'Widgets/videoCard.dart';
 
 void main() {
   runApp(const MyApp());
@@ -13,10 +11,10 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
+    return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Mobflix',
-      home: homePage(),
+      home: videoCardInherited(child: const homePage()),
     );
   }
 }
