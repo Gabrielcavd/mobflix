@@ -16,7 +16,7 @@ class homePage extends StatelessWidget {
           Navigator.push(
             context,
             MaterialPageRoute(
-              builder: (context) => const registrationScreen()
+              builder: (contextBuilder) => registrationScreen(registrationContext: context),
             ),
           );
         },
@@ -36,15 +36,15 @@ class homePage extends StatelessWidget {
         color: Colors.black87,
         child: SingleChildScrollView(
           child: Column(
-            children: const [
+            children: [
               highlight(
                   url:
                       'https://img.youtube.com/vi/DotnJ7tTA34/maxresdefault.jpg'),
               rowCategories(),
-              //Divider(height: 30, color: Colors.white,),
               rowVideoCard(),
             ],
           ),
+
         ),
       ),
     );

@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 
 class categories extends StatelessWidget {
-  final String texto;
-  final Color cor;
+  String texto;
+  Color cor;
 
-  const categories({Key? key, required this.texto, required this.cor}) : super(key: key);
+  categories({Key? key, required this.texto, required this.cor}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

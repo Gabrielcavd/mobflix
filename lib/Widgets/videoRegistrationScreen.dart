@@ -1,7 +1,11 @@
+import 'package:challange_mobile_alura/Widgets/rowCategories.dart';
+import 'package:challange_mobile_alura/Widgets/videoCardData.dart';
 import 'package:flutter/material.dart';
 
 class registrationScreen extends StatefulWidget {
-  const registrationScreen({Key? key}) : super(key: key);
+  const registrationScreen({Key? key, required this.registrationContext}) : super(key: key);
+
+  final BuildContext registrationContext;
 
   @override
   State<registrationScreen> createState() => _registrationScreenState();
@@ -9,7 +13,17 @@ class registrationScreen extends StatefulWidget {
 
 class _registrationScreenState extends State<registrationScreen> {
   TextEditingController urlController = TextEditingController();
+  TextEditingController categorieNameController = TextEditingController();
   final _formKey = GlobalKey<FormState>();
+
+  int verifyCategorie(String categorieName) {
+    for (int i = 0; i < rowCategories().categoriesList.length; i++) {
+      if (categorieName == rowCategories().categoriesList[i].texto) {
+        return 1;
+      }
+    }
+    return 0;
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -69,13 +83,14 @@ class _registrationScreenState extends State<registrationScreen> {
               ),
               TextFormField(
                 validator: (value) {
-                  if (value!.isEmpty) {
+                  if (value!.isEmpty || verifyCategorie(value) == 0) {
                     return ("Insira uma categoria válida");
                   } else {
                     return null;
                   }
                 },
                 cursorColor: Colors.black,
+                controller: categorieNameController,
                 decoration: InputDecoration(
                   filled: true,
                   fillColor: Colors.blue,
@@ -120,9 +135,11 @@ class _registrationScreenState extends State<registrationScreen> {
                 child: ElevatedButton(
                   onPressed: () {
                     if (_formKey.currentState!.validate()) {
-                      print(urlController.text);
+                      videoCardInherited.of(widget.registrationContext).addVideo(
+                          urlController.text, categorieNameController.text);
                       ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
                           content: Text('Vídeo cadastrado com sucesso!')));
+                      Navigator.pop(context);
                     }
                   },
                   child: Text('Cadastrar Video'),
