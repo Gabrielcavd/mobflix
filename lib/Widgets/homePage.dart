@@ -5,9 +5,14 @@ import 'videoRegistrationScreen.dart';
 import 'rowCategories.dart';
 
 
-class homePage extends StatelessWidget {
+class homePage extends StatefulWidget {
   const homePage({Key? key}) : super(key: key);
 
+  @override
+  State<homePage> createState() => _homePageState();
+}
+
+class _homePageState extends State<homePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -18,7 +23,7 @@ class homePage extends StatelessWidget {
             MaterialPageRoute(
               builder: (contextBuilder) => registrationScreen(registrationContext: context),
             ),
-          );
+          ).then((value) => setState(() {print('opa');}));
         },
         child: const Icon(Icons.add),
       ),

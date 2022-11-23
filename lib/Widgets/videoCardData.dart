@@ -24,7 +24,12 @@ class videoCardInherited extends InheritedWidget {
         url:
         'https://img.youtube.com/vi/i6avfCqKcQo/maxresdefault.jpg',
         categorie:
-        categories(texto: 'Ficção', cor: Colors.green))
+        categories(texto: 'Ficção', cor: Colors.green)),
+     videoCard(
+         url:
+         'https://img.youtube.com/vi/dD264ZjfKlk/maxresdefault.jpg',
+         categorie:
+         categories(texto: 'Terror', cor: Colors.blueGrey))
   ];
 
   void addVideo(String url, String categorieName){
@@ -36,9 +41,9 @@ class videoCardInherited extends InheritedWidget {
         categorie.cor = rowCategories().categoriesList[i].cor;
       }
     }
-    print(videoList.length);
+    print(videoList.last.url);
     videoList.add(videoCard(url: url, categorie: categorie));
-    print(videoList.length);
+    print(videoList.last.url);
   }
 
 
@@ -54,3 +59,4 @@ class videoCardInherited extends InheritedWidget {
     return old.videoList.length != videoList.length;
   }
 }
+
