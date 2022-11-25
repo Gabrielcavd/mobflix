@@ -12,22 +12,22 @@ class videoCardInherited extends InheritedWidget {
    List<videoCard> videoList = [
     videoCard(
         url:
-        'https://img.youtube.com/vi/dD264ZjfKlk/maxresdefault.jpg',
+        'dD264ZjfKlk',
         categorie:
         categories(texto: 'Terror', cor: Colors.blueGrey)),
     videoCard(
         url:
-        'https://img.youtube.com/vi/i6avfCqKcQo/maxresdefault.jpg',
+        'i6avfCqKcQo',
         categorie:
         categories(texto: 'Ficção', cor: Colors.green)),
     videoCard(
         url:
-        'https://img.youtube.com/vi/i6avfCqKcQo/maxresdefault.jpg',
+        'i6avfCqKcQo',
         categorie:
         categories(texto: 'Ficção', cor: Colors.green)),
      videoCard(
          url:
-         'https://img.youtube.com/vi/dD264ZjfKlk/maxresdefault.jpg',
+         'dD264ZjfKlk',
          categorie:
          categories(texto: 'Terror', cor: Colors.blueGrey))
   ];
@@ -45,8 +45,6 @@ class videoCardInherited extends InheritedWidget {
     videoList.add(videoCard(url: url, categorie: categorie));
     print(videoList.last.url);
   }
-
-
 
   static videoCardInherited of(BuildContext context) {
     final videoCardInherited? result = context.dependOnInheritedWidgetOfExactType<videoCardInherited>();

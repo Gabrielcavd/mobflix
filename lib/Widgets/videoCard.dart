@@ -18,7 +18,7 @@ class videoCard extends StatelessWidget {
             padding: const EdgeInsets.only(top: 7),
             child: ClipRRect(
               borderRadius: BorderRadius.circular(10),
-              child: Image.network(url),
+              child: Image.network('https://img.youtube.com/vi/${url}/maxresdefault.jpg'),
             ),
           ),
         ],
