@@ -1,9 +1,8 @@
 import 'package:challange_mobile_alura/Widgets/rowVideoCards.dart';
 import 'package:flutter/material.dart';
-import 'highlight.dart';
+import '../Widgets/highlight.dart';
 import 'videoRegistrationScreen.dart';
-import 'rowCategories.dart';
-
+import '../Widgets/rowCategories.dart';
 
 class homePage extends StatefulWidget {
   const homePage({Key? key}) : super(key: key);
@@ -21,9 +20,12 @@ class _homePageState extends State<homePage> {
           Navigator.push(
             context,
             MaterialPageRoute(
-              builder: (contextBuilder) => registrationScreen(registrationContext: context),
+              builder: (contextBuilder) =>
+                  registrationScreen(),
             ),
-          ).then((value) => setState(() {print('opa');}));
+          ).then((value) => setState(() {
+                print('reconstruindo tela');
+              }));
         },
         child: const Icon(Icons.add),
       ),
@@ -39,17 +41,16 @@ class _homePageState extends State<homePage> {
       ),
       body: Container(
         color: Colors.black87,
-        child: SingleChildScrollView(
-          child: Column(
-            children: [
-              highlight(
-                  url:
-                      'https://img.youtube.com/vi/DotnJ7tTA34/maxresdefault.jpg'),
-              rowCategories(),
-              rowVideoCard(),
-            ],
-          ),
-
+        child: Column(
+          children: [
+             highlight(
+                 url:
+                     'DotnJ7tTA34'),
+            rowCategories(),
+            Expanded(
+              child: rowVideoCard(),
+            ),
+          ],
         ),
       ),
     );

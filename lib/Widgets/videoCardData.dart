@@ -1,4 +1,4 @@
-import 'package:challange_mobile_alura/Widgets/rowCategories.dart';
+/*import 'package:challange_mobile_alura/Widgets/rowCategories.dart';
 import 'package:challange_mobile_alura/Widgets/videoCard.dart';
 import 'package:flutter/material.dart';
 import 'categorie.dart';
@@ -14,36 +14,35 @@ class videoCardInherited extends InheritedWidget {
         url:
         'dD264ZjfKlk',
         categorie:
-        categories(texto: 'Terror', cor: Colors.blueGrey)),
+        categories(categorieName: 'Terror', categorieColor: Colors.blueGrey)),
     videoCard(
         url:
         'i6avfCqKcQo',
         categorie:
-        categories(texto: 'Ficção', cor: Colors.green)),
+        categories(categorieName: 'Ficção', categorieColor: Colors.green)),
     videoCard(
         url:
         'i6avfCqKcQo',
         categorie:
-        categories(texto: 'Ficção', cor: Colors.green)),
+        categories(categorieName: 'Ficção', categorieColor: Colors.green)),
      videoCard(
          url:
          'dD264ZjfKlk',
          categorie:
-         categories(texto: 'Terror', cor: Colors.blueGrey))
+         categories(categorieName: 'Terror', categorieColor: Colors.blueGrey))
   ];
 
-  void addVideo(String url, String categorieName){
-    categories categorie = categories(texto: '', cor: Colors.black);
+  videoCard addVideo(String url, String categorieName){
+    categories categorie = categories(categorieName: '', categorieColor: Colors.black);
 
     for(int i = 0; i<rowCategories().categoriesList.length; i++){
-      if(categorieName == rowCategories().categoriesList[i].texto){
-        categorie.texto = rowCategories().categoriesList[i].texto;
-        categorie.cor = rowCategories().categoriesList[i].cor;
+      if(categorieName == rowCategories().categoriesList[i].categorieName){
+        categorie.categorieName = rowCategories().categoriesList[i].categorieName;
+        categorie.categorieColor = rowCategories().categoriesList[i].categorieColor;
       }
     }
-    print(videoList.last.url);
-    videoList.add(videoCard(url: url, categorie: categorie));
-    print(videoList.last.url);
+
+    return videoCard(url: url, categorie: categorie);
   }
 
   static videoCardInherited of(BuildContext context) {
@@ -56,5 +55,5 @@ class videoCardInherited extends InheritedWidget {
   bool updateShouldNotify(videoCardInherited old) {
     return old.videoList.length != videoList.length;
   }
-}
+}*/
 

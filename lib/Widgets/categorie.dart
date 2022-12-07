@@ -1,22 +1,35 @@
+import 'package:challange_mobile_alura/Screens/filterScreen.dart';
 import 'package:flutter/material.dart';
 
 class categories extends StatelessWidget {
-  String texto;
-  Color cor;
+  String categorieName;
+  int categorieColor;
 
-  categories({Key? key, required this.texto, required this.cor}) : super(key: key);
+  categories({Key? key, required this.categorieName, required this.categorieColor}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: const EdgeInsets.symmetric(
-          horizontal: 10, vertical: 2),
       padding: const EdgeInsets.symmetric(
-          vertical: 8, horizontal: 17),
-      decoration: BoxDecoration(
-          color: cor,
-          borderRadius: BorderRadius.circular(10)),
-      child: Text(texto, style: const TextStyle(color: Colors.white),),
+          vertical: 5, horizontal: 10),
+      child: ElevatedButton(
+        style: ElevatedButton.styleFrom(
+          padding: const EdgeInsets.symmetric(horizontal: 30, vertical: 10),
+          primary: Color(categorieColor),
+          onPrimary: Colors.white,
+          shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(15))
+        ),
+        onPressed: () {
+          Navigator.push(
+            context,
+            MaterialPageRoute(
+              builder: (contextBuilder) =>
+                  filterScreen(categorieName: categorieName, categorieColor: categorieColor,)
+            ),
+          );
+        },
+        child: Text(categorieName),
+      ),
     );
   }
 }

@@ -1,0 +1,32 @@
+const categoryData = [
+  {"categorieName": "Ação", "colorInt": -14049492},
+  {"categorieName": "Terror", "colorInt": -2350542},
+  {"categorieName": "Suspense", "colorInt": -16777216},
+  {"categorieName": "Aventura", "colorInt": -13251864},
+  {"categorieName": "Ficção Científica", "colorInt": -14049492},
+  {"categorieName": "Animação", "colorInt": -13251864},
+  {"categorieName": "Drama", "colorInt": -14583081},
+  {"categorieName": "Comédia", "colorInt": -13251864},
+  {"categorieName": "Romance", "colorInt": -2350542},
+  {"categorieName": "Fantasia", "colorInt": -14583081},
+  {"categorieName": "Musical", "colorInt": -16777216},
+  {"categorieName": "Guerra", "colorInt": -13251864},
+];
+
+final Map<String, int> categoryMap = {
+  'Ação': -14049492,
+  'Terror': -2350542,
+  'Suspense': -16777216,
+  'Aventura': -13251864,
+  'Ficção Científica': -14049492,
+  'Animação': -13251864,
+  'Drama': -14583081,
+  'Comédia': -13251864,
+  'Médicas': -14049492,
+  'Romance': -2350542,
+  'Fantasia': -14583081,
+  'Espionagem': -3695864,
+  'Musical': -16777216,
+  'Policial': -3695864,
+  'Guerra': -13251864,
+};

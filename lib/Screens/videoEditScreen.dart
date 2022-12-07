@@ -1,24 +1,45 @@
-import 'package:challange_mobile_alura/Widgets/rowCategories.dart';
-import 'package:challange_mobile_alura/Widgets/videoCardData.dart';
 import 'package:flutter/material.dart';
+import '../Data/videoCard_dao.dart';
+import '../Data/categoriesData.dart';
+import '../Widgets/videoCard.dart';
 
-class registrationScreen extends StatefulWidget {
-  const registrationScreen({Key? key, required this.registrationContext}) : super(key: key);
+class videoEditScreen extends StatefulWidget {
+  final String url;
+  final String categorieName;
+  final int categorieColor;
 
-  final BuildContext registrationContext;
+  const videoEditScreen({Key? key, required this.url, required this.categorieName, required this.categorieColor}) : super(key: key);
 
   @override
-  State<registrationScreen> createState() => _registrationScreenState();
+  State<videoEditScreen> createState() => _videoEditScreenState();
 }
 
-class _registrationScreenState extends State<registrationScreen> {
+class _videoEditScreenState extends State<videoEditScreen> {
   TextEditingController urlController = TextEditingController();
   TextEditingController categorieNameController = TextEditingController();
+  int colorController = 0;
+
   final _formKey = GlobalKey<FormState>();
 
+  @override
+  void initState() {
+    super.initState();
+    urlController.text = widget.url;
+  }
+
+  @override
+  void dispose() {
+    urlController.dispose();
+    super.dispose();
+  }
+
+  final List<String> keysList = categoryMap.keys.toList();
+  final List<int> valuesList = categoryMap.values.toList();
+
   int verifyCategorie(String categorieName) {
-    for (int i = 0; i < rowCategories().categoriesList.length; i++) {
-      if (categorieName == rowCategories().categoriesList[i].texto) {
+    final List<String> keysList = categoryMap.keys.toList();
+    for (int i = 0; i < keysList.length; i++) {
+      if (categorieName == keysList[i]) {
         return 1;
       }
     }
@@ -30,16 +51,17 @@ class _registrationScreenState extends State<registrationScreen> {
     return Form(
       key: _formKey,
       child: Scaffold(
+        resizeToAvoidBottomInset: false,
         body: Container(
           padding:
-              const EdgeInsets.only(top: 40, left: 20, right: 20, bottom: 40),
+          const EdgeInsets.only(top: 55, left: 20, right: 20, bottom: 40),
           color: Colors.black87,
           child: Column(
             mainAxisAlignment: MainAxisAlignment.start,
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               const Text(
-                'Cadastre um vídeo',
+                'Edite o Vídeo',
                 style: TextStyle(
                   fontSize: 28,
                   color: Colors.white,
@@ -111,6 +133,7 @@ class _registrationScreenState extends State<registrationScreen> {
                 ),
               ),
               Container(
+                margin: EdgeInsets.only(bottom: 15),
                 width: 500,
                 height: 200,
                 decoration: BoxDecoration(
@@ -133,10 +156,15 @@ class _registrationScreenState extends State<registrationScreen> {
               ),
               Center(
                 child: ElevatedButton(
-                  onPressed: () {
+                  style: ElevatedButton.styleFrom(
+                      shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(15)
+                      )
+                  ),
+                  onPressed: () async {
                     if (_formKey.currentState!.validate()) {
-                      videoCardInherited.of(widget.registrationContext).addVideo(
-                          urlController.text, categorieNameController.text);
+                      colorController = valuesList[(keysList.indexOf(categorieNameController.text))];
+                      await videoCardDao().save(videoCard(url: urlController.text, categorieName: categorieNameController.text, categorieColor: colorController));
                       ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
                           content: Text('Vídeo cadastrado com sucesso!')));
                       Navigator.pop(context);
