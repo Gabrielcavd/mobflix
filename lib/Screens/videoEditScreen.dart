@@ -1,14 +1,19 @@
 import 'package:flutter/material.dart';
 import '../Data/videoCard_dao.dart';
 import '../Data/categoriesData.dart';
-import '../Widgets/videoCard.dart';
+import '../Components/videoCard.dart';
 
 class videoEditScreen extends StatefulWidget {
   final String url;
   final String categorieName;
   final int categorieColor;
 
-  const videoEditScreen({Key? key, required this.url, required this.categorieName, required this.categorieColor}) : super(key: key);
+  const videoEditScreen(
+      {Key? key,
+      required this.url,
+      required this.categorieName,
+      required this.categorieColor})
+      : super(key: key);
 
   @override
   State<videoEditScreen> createState() => _videoEditScreenState();
@@ -51,11 +56,11 @@ class _videoEditScreenState extends State<videoEditScreen> {
     return Form(
       key: _formKey,
       child: Scaffold(
+        backgroundColor: Colors.grey.shade900,
         resizeToAvoidBottomInset: false,
         body: Container(
           padding:
-          const EdgeInsets.only(top: 55, left: 20, right: 20, bottom: 40),
-          color: Colors.black87,
+              const EdgeInsets.only(top: 55, left: 20, right: 20, bottom: 40),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.start,
             crossAxisAlignment: CrossAxisAlignment.start,
@@ -157,20 +162,23 @@ class _videoEditScreenState extends State<videoEditScreen> {
               Center(
                 child: ElevatedButton(
                   style: ElevatedButton.styleFrom(
+                      fixedSize: const Size(200, 40),
                       shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(15)
-                      )
-                  ),
+                          borderRadius: BorderRadius.circular(15))),
                   onPressed: () async {
                     if (_formKey.currentState!.validate()) {
-                      colorController = valuesList[(keysList.indexOf(categorieNameController.text))];
-                      await videoCardDao().save(videoCard(url: urlController.text, categorieName: categorieNameController.text, categorieColor: colorController));
+                      colorController = valuesList[
+                          (keysList.indexOf(categorieNameController.text))];
+                      await videoCardDao().save(videoCard(
+                          url: urlController.text,
+                          categorieName: categorieNameController.text,
+                          categorieColor: colorController));
                       ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
-                          content: Text('Vídeo cadastrado com sucesso!')));
+                          content: Text('Vídeo editado com sucesso!')));
                       Navigator.pop(context);
                     }
                   },
-                  child: Text('Cadastrar Video'),
+                  child: Text('Editar Video'),
                 ),
               ),
             ],

@@ -1,8 +1,8 @@
-import 'package:challange_mobile_alura/Widgets/categorie.dart';
+import 'package:challange_mobile_alura/Components/categorie.dart';
 import 'package:flutter/material.dart';
 
 import '../Data/videoCard_dao.dart';
-import '../Widgets/videoCard.dart';
+import '../Components/videoCard.dart';
 
 class filterScreen extends StatelessWidget {
   final String categorieName;

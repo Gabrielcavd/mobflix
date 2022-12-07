@@ -1,6 +1,6 @@
 import 'package:challange_mobile_alura/Data/videoCard_dao.dart';
 import 'package:challange_mobile_alura/Screens/videoEditScreen.dart';
-import 'package:challange_mobile_alura/Widgets/videoCard.dart';
+import 'package:challange_mobile_alura/Components/videoCard.dart';
 import 'package:flutter/material.dart';
 
 class rowVideoCard extends StatefulWidget {
@@ -63,27 +63,39 @@ class _rowVideoCardState extends State<rowVideoCard> {
                               alignment: Alignment.centerLeft,
                               padding: EdgeInsets.symmetric(horizontal: 30),
                               color: Color(0xFF222223),
-                              child: Icon(Icons.edit, color: Colors.green, size: 30,),
+                              child: Icon(
+                                Icons.edit,
+                                color: Colors.green,
+                                size: 30,
+                              ),
                             ),
                             secondaryBackground: Container(
                               alignment: Alignment.centerRight,
                               padding: EdgeInsets.symmetric(horizontal: 30),
                               color: Color(0xFF222223),
-                              child: Icon(Icons.delete_forever, color: Colors.red, size: 40,),
+                              child: Icon(
+                                Icons.delete_forever,
+                                color: Colors.red,
+                                size: 40,
+                              ),
                             ),
-                            onDismissed: (direction){
-                              if(direction == DismissDirection.endToStart){
+                            onDismissed: (direction) {
+                              if (direction == DismissDirection.endToStart) {
                                 videoCardDao().delete(itens[index].url);
                               } else {
                                 Navigator.push(
                                   context,
                                   MaterialPageRoute(
-                                      builder: (contextBuilder) =>
-                                          videoEditScreen(url: video.url, categorieName: video.categorieName, categorieColor: video.categorieColor),
+                                    builder: (contextBuilder) =>
+                                        videoEditScreen(
+                                            url: video.url,
+                                            categorieName: video.categorieName,
+                                            categorieColor:
+                                                video.categorieColor),
                                   ),
                                 ).then((value) => setState(() {
-                                  print('reconstruindo tela');
-                                }));
+                                      print('reconstruindo tela');
+                                    }));
                               }
                             },
                             child: video,

@@ -1,5 +1,7 @@
+import 'package:challange_mobile_alura/Screens/loadVideoScreen.dart';
 import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
+import 'package:youtube_player_flutter/youtube_player_flutter.dart';
 
 class videoCard extends StatefulWidget {
   final String url;
@@ -18,7 +20,6 @@ class videoCard extends StatefulWidget {
 }
 
 class _videoCardState extends State<videoCard> {
-
   Future<void> launchUrl2() async {
     if (await canLaunchUrl(
         Uri.parse('https://m.youtube.com/watch?v=${widget.url}'))) {
@@ -36,8 +37,7 @@ class _videoCardState extends State<videoCard> {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Container(
-            padding: const EdgeInsets.symmetric(
-                vertical: 10, horizontal: 30),
+            padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 30),
             decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(15),
                 color: Color(widget.categorieColor)),
@@ -51,7 +51,14 @@ class _videoCardState extends State<videoCard> {
                 child: InkWell(
                   child: Image.network(
                       'https://img.youtube.com/vi/${widget.url}/maxresdefault.jpg'),
-                  onTap: launchUrl2,
+                  onTap: (){
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (contextBuilder) => loadVideoScreen(url: widget.url),
+                      ),
+                    );
+                  }
                 )),
           ),
         ],

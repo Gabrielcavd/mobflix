@@ -1,4 +1,4 @@
-import 'package:challange_mobile_alura/Widgets/videoCard.dart';
+import 'package:challange_mobile_alura/Components/videoCard.dart';
 import 'package:sqflite/sqflite.dart';
 import 'database.dart';
 

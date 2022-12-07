@@ -1,8 +1,8 @@
-import 'package:challange_mobile_alura/Widgets/rowVideoCards.dart';
+import 'package:challange_mobile_alura/Components/rowVideoCards.dart';
 import 'package:flutter/material.dart';
-import '../Widgets/highlight.dart';
+import '../Components/highlight.dart';
 import 'videoRegistrationScreen.dart';
-import '../Widgets/rowCategories.dart';
+import '../Components/rowCategories.dart';
 
 class homePage extends StatefulWidget {
   const homePage({Key? key}) : super(key: key);
@@ -20,8 +20,7 @@ class _homePageState extends State<homePage> {
           Navigator.push(
             context,
             MaterialPageRoute(
-              builder: (contextBuilder) =>
-                  registrationScreen(),
+              builder: (contextBuilder) => registrationScreen(),
             ),
           ).then((value) => setState(() {
                 print('reconstruindo tela');
@@ -43,11 +42,9 @@ class _homePageState extends State<homePage> {
         color: Colors.black87,
         child: Column(
           children: [
-             highlight(
-                 url:
-                     'DotnJ7tTA34'),
+            const highlight(url: 'DotnJ7tTA34'),
             rowCategories(),
-            Expanded(
+            const Expanded(
               child: rowVideoCard(),
             ),
           ],

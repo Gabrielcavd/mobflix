@@ -15,7 +15,8 @@ class highlight extends StatelessWidget {
           fit: BoxFit.cover,
           height: 140,
           width: double.maxFinite,
-          image: NetworkImage('https://img.youtube.com/vi/${url}/maxresdefault.jpg'),
+          image: NetworkImage(
+              'https://img.youtube.com/vi/${url}/maxresdefault.jpg'),
         ),
         Container(
           padding: EdgeInsets.only(bottom: 10),
