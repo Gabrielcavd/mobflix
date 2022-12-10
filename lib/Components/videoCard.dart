@@ -56,7 +56,7 @@ class _videoCardState extends State<videoCard> {
                       context,
                       MaterialPageRoute(
                         builder: (contextBuilder) => loadVideoScreen(url: widget.url),
-                      ),
+                      )
                     );
                   }
                 )),

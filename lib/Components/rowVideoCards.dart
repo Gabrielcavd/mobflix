@@ -83,19 +83,14 @@ class _rowVideoCardState extends State<rowVideoCard> {
                               if (direction == DismissDirection.endToStart) {
                                 videoCardDao().delete(itens[index].url);
                               } else {
-                                Navigator.push(
-                                  context,
+                                Navigator.of(context).pushReplacement(
                                   MaterialPageRoute(
-                                    builder: (contextBuilder) =>
-                                        videoEditScreen(
-                                            url: video.url,
-                                            categorieName: video.categorieName,
-                                            categorieColor:
-                                                video.categorieColor),
+                                    builder: (context) => videoEditScreen(
+                                        url: video.url,
+                                        categorieName: video.categorieName,
+                                        categorieColor: video.categorieColor),
                                   ),
-                                ).then((value) => setState(() {
-                                      print('reconstruindo tela');
-                                    }));
+                                );
                               }
                             },
                             child: video,
@@ -104,6 +99,7 @@ class _rowVideoCardState extends State<rowVideoCard> {
                   }
                   return Center(
                     child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
                       children: const [
                         Icon(
                           Icons.error_outline,

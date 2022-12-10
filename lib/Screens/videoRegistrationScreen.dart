@@ -1,7 +1,6 @@
 import 'package:challange_mobile_alura/Data/videoCard_dao.dart';
 import 'package:challange_mobile_alura/Components/videoCard.dart';
 import 'package:flutter/material.dart';
-
 import '../Data/categoriesData.dart';
 
 class registrationScreen extends StatefulWidget {
@@ -36,25 +35,27 @@ class _registrationScreenState extends State<registrationScreen> {
     return Form(
       key: _formKey,
       child: Scaffold(
-         backgroundColor: Colors.grey.shade900,
+        appBar: AppBar(
+          backgroundColor: Colors.grey.shade900,
+          title: const Text(
+            'Cadastre um vídeo',
+            style: TextStyle(
+              fontSize: 24,
+              color: Colors.white,
+              fontWeight: FontWeight.bold,
+            ),
+          ),
+        ),
+        backgroundColor: Colors.grey.shade900,
         resizeToAvoidBottomInset: false,
         body: SingleChildScrollView(
           child: Container(
             padding:
-                const EdgeInsets.only(top: 55, left: 20, right: 20, bottom: 40),
-            //color: Colors.black87,
+            const EdgeInsets.only(top: 10, left: 20, right: 20, bottom: 40),
             child: Column(
               mainAxisAlignment: MainAxisAlignment.start,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                const Text(
-                  'Cadastre um vídeo',
-                  style: TextStyle(
-                    fontSize: 28,
-                    color: Colors.white,
-                    fontWeight: FontWeight.bold,
-                  ),
-                ),
                 const Padding(
                   padding: EdgeInsets.only(top: 20, bottom: 8),
                   child: Text(
@@ -130,7 +131,8 @@ class _registrationScreenState extends State<registrationScreen> {
                   child: ClipRRect(
                     borderRadius: BorderRadius.circular(10),
                     child: Image.network(
-                      'https://img.youtube.com/vi/${urlController.text}/maxresdefault.jpg',
+                      'https://img.youtube.com/vi/${urlController
+                          .text}/maxresdefault.jpg',
                       errorBuilder: (BuildContext context, Object exception,
                           StackTrace? stackTrace) {
                         return const Icon(
@@ -150,14 +152,18 @@ class _registrationScreenState extends State<registrationScreen> {
                     onPressed: () async {
                       if (_formKey.currentState!.validate()) {
                         colorController = valuesList[
-                            (keysList.indexOf(categorieNameController.text))];
+                        (keysList.indexOf(categorieNameController.text))];
                         await videoCardDao().save(videoCard(
                             url: urlController.text,
                             categorieName: categorieNameController.text,
                             categorieColor: colorController));
-                        ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
-                            content: Text('Vídeo cadastrado com sucesso!')));
-                        Navigator.pop(context);
+                        ScaffoldMessenger.of(context).showSnackBar(
+                          const SnackBar(
+                            content: Text('Vídeo cadastrado com sucesso!'),
+                          ),
+                        );
+                        Navigator.pushNamedAndRemoveUntil(
+                            context, '/homePage', ModalRoute.withName('/'));
                       }
                     },
                     child: Text('Cadastrar Video'),

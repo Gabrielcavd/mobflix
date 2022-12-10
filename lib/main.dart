@@ -1,4 +1,5 @@
 import 'package:challange_mobile_alura/Screens/homePage.dart';
+import 'package:challange_mobile_alura/Screens/videoRegistrationScreen.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -10,10 +11,15 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
+    return  MaterialApp(
+      initialRoute: "/homePage",
+      routes: {
+        "/homePage": (context) => homePage(),
+        "/videoRegistrationScreen": (context) => registrationScreen(),
+      },
       debugShowCheckedModeBanner: false,
       title: 'Mobflix',
-      home: homePage()
+
     );
   }
 }

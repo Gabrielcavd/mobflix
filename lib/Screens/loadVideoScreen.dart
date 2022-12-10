@@ -10,23 +10,33 @@ class loadVideoScreen extends StatefulWidget {
 }
 
 class _loadVideoScreenState extends State<loadVideoScreen> {
-
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(toolbarHeight: 0, backgroundColor: Colors.black87,),
-      body: Container(
-        color: Colors.black87,
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.start,
-          children: [
-            YoutubePlayer(controller: YoutubePlayerController(
-              initialVideoId: widget.url,
-            ))
-          ],
+      appBar: AppBar(
+        backgroundColor: Colors.black87,
+        title: const Text(
+          'MOBFLIX',
+          style: TextStyle(
+              color: Colors.lightBlue,
+              fontWeight: FontWeight.bold,
+              fontSize: 25),
         ),
       ),
+      body: Container(
+          color: Colors.black87,
+          child: YoutubePlayerBuilder(
+            player: YoutubePlayer(
+              controller: YoutubePlayerController(initialVideoId: widget.url),
+            ),
+            builder: (context, player) {
+              return Column(
+                children: [
+                  player,
+                ],
+              );
+            },
+          )),
     );
   }
 }

@@ -20,13 +20,9 @@ class categories extends StatelessWidget {
           shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(15))
         ),
         onPressed: () {
-          Navigator.push(
-            context,
-            MaterialPageRoute(
-              builder: (contextBuilder) =>
-                  filterScreen(categorieName: categorieName, categorieColor: categorieColor,)
-            ),
-          );
+          Navigator.of(context).push(MaterialPageRoute(builder: (contextNew) {
+            return filterScreen(categorieName: categorieName, categorieColor: categorieColor);
+          }));
         },
         child: Text(categorieName),
       ),

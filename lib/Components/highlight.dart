@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
 
+import '../Screens/loadVideoScreen.dart';
+
 class highlight extends StatelessWidget {
   final String url;
 
@@ -25,7 +27,12 @@ class highlight extends StatelessWidget {
                 shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(15))),
             onPressed: () {
-              launchUrl(Uri.parse('https://m.youtube.com/watch?v=${url}'));
+              Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (contextBuilder) => loadVideoScreen(url: url),
+                  )
+              );
             },
             child: Text('Assista Agora'),
           ),
