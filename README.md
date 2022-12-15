@@ -12,8 +12,13 @@ Quando abrir o projeto, basta abrir o arquivo "pubspec.yaml" executar o comando 
 
 - Home Page
 
-  <img width="400" height="700" src="https://github.com/Gabrielcavd/mobflix/blob/main/lib/Assets/homePage.png">
+  <img width="400" height="780" src="https://github.com/Gabrielcavd/mobflix/blob/main/lib/Assets/homePage.png">
   
 - Registrando novo trailer
   
   <img width="400" height="780" src="https://github.com/Gabrielcavd/mobflix/blob/main/lib/Assets/registringVideo.gif">
+  
+- Filtrando por categoria
+  
+  <img width="400" height="780" src="https://github.com/Gabrielcavd/mobflix/blob/main/lib/Assets/filter.gif">
+  
