@@ -11,6 +11,6 @@ Quando abrir o projeto, basta abrir o arquivo "pubspec.yaml" executar o comando 
 ### Preview
 
 <p align="center">
-  #### home page
+  <home page>
   <img width="400" height="700" src="https://github.com/Gabrielcavd/mobflix/blob/main/lib/Assets/homePage.png">
 </p>
