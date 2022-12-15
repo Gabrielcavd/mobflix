@@ -29,7 +29,6 @@ class _rowVideoCardState extends State<rowVideoCard> {
                     ],
                   ),
                 );
-                break;
               case ConnectionState.waiting:
                 return Center(
                   child: Column(
@@ -39,7 +38,6 @@ class _rowVideoCardState extends State<rowVideoCard> {
                     ],
                   ),
                 );
-                break;
               case ConnectionState.active:
                 return Center(
                   child: Column(
@@ -49,7 +47,6 @@ class _rowVideoCardState extends State<rowVideoCard> {
                     ],
                   ),
                 );
-                break;
               case ConnectionState.done:
                 if (snapshot.hasData && itens != null) {
                   if (itens.isNotEmpty) {
@@ -114,9 +111,7 @@ class _rowVideoCardState extends State<rowVideoCard> {
                   );
                 }
                 return Text('Erro ao carregar tarefas');
-                break;
             }
-            return Text('Erro desconhecido');
           }),
     );
   }

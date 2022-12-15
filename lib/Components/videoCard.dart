@@ -1,7 +1,6 @@
 import 'package:challange_mobile_alura/Screens/loadVideoScreen.dart';
 import 'package:flutter/material.dart';
-import 'package:url_launcher/url_launcher.dart';
-import 'package:youtube_player_flutter/youtube_player_flutter.dart';
+
 
 class videoCard extends StatefulWidget {
   final String url;
@@ -20,14 +19,6 @@ class videoCard extends StatefulWidget {
 }
 
 class _videoCardState extends State<videoCard> {
-  Future<void> launchUrl2() async {
-    if (await canLaunchUrl(
-        Uri.parse('https://m.youtube.com/watch?v=${widget.url}'))) {
-      await launch('https://m.youtube.com/watch?v=${widget.url}');
-    } else {
-      print('Não foi possível abrir URL');
-    }
-  }
 
   @override
   Widget build(BuildContext context) {

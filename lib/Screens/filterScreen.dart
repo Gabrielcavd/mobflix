@@ -1,4 +1,3 @@
-import 'package:challange_mobile_alura/Components/categorie.dart';
 import 'package:challange_mobile_alura/Screens/videoEditScreen.dart';
 import 'package:flutter/material.dart';
 import '../Data/videoCard_dao.dart';
@@ -71,7 +70,6 @@ class filterScreen extends StatelessWidget {
                               ],
                             ),
                           );
-                          break;
                         case ConnectionState.waiting:
                           return Center(
                             child: Column(
@@ -81,7 +79,6 @@ class filterScreen extends StatelessWidget {
                               ],
                             ),
                           );
-                          break;
                         case ConnectionState.active:
                           return Center(
                             child: Column(
@@ -91,7 +88,6 @@ class filterScreen extends StatelessWidget {
                               ],
                             ),
                           );
-                          break;
                         case ConnectionState.done:
                           if (snapshot.hasData && itens != null) {
                             if (itens.isNotEmpty) {
@@ -125,17 +121,24 @@ class filterScreen extends StatelessWidget {
                                         ),
                                       ),
                                       onDismissed: (direction) {
-                                        if (direction == DismissDirection.endToStart) {
-                                          videoCardDao().delete(itens[index].url);
+                                        if (direction ==
+                                            DismissDirection.endToStart) {
+                                          videoCardDao()
+                                              .delete(itens[index].url);
                                           Navigator.pushNamedAndRemoveUntil(
-                                              context, '/homePage', ModalRoute.withName('/'));
+                                              context,
+                                              '/homePage',
+                                              ModalRoute.withName('/'));
                                         } else {
                                           Navigator.of(context).pushReplacement(
                                             MaterialPageRoute(
-                                              builder: (context) => videoEditScreen(
-                                                  url: video.url,
-                                                  categorieName: video.categorieName,
-                                                  categorieColor: video.categorieColor),
+                                              builder: (context) =>
+                                                  videoEditScreen(
+                                                      url: video.url,
+                                                      categorieName:
+                                                          video.categorieName,
+                                                      categorieColor:
+                                                          video.categorieColor),
                                             ),
                                           );
                                         }
@@ -161,9 +164,7 @@ class filterScreen extends StatelessWidget {
                             );
                           }
                           return Text('Erro ao carregar tarefas');
-                          break;
                       }
-                      return Text('Erro desconhecido');
                     }),
               ),
             ),
