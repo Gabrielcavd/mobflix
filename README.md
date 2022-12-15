@@ -1,16 +1,12 @@
-# challange_mobile_alura
+# mobflix
 
-A new Flutter project.
+## Projeto feito no Challange Mobile Alura
 
-## Getting Started
+A proposta é ser um app de trailers de filmes/séries com várias funcionalidades. Você adicionar trailers novos através do ID do vídeo, assim como editar ou deletar os trailers que já estão no app, esses são separados por categorias e você pode filtrar os trailers pela categoria que quiser. Os vídeos são carregados dentro do próprio app.
 
-This project is a starting point for a Flutter application.
+### Instalação
 
-A few resources to get you started if this is your first Flutter project:
+Quando abrir o projeto, basta abrir o arquivo "pubspec.yaml" executar o comando "Pub get".
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+### Preview
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
