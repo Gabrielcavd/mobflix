@@ -16,4 +16,4 @@ Quando abrir o projeto, basta abrir o arquivo "pubspec.yaml" executar o comando 
   
 - Registrando novo trailer
   
-  <img width="400" height="700" src="https://github.com/Gabrielcavd/mobflix/blob/main/lib/Assets/registringVideo.mov">
+  <img width="400" height="700" src="https://github.com/Gabrielcavd/mobflix/blob/main/lib/Assets/registringVideo.gif">
