@@ -16,17 +16,17 @@ Quando abrir o projeto, basta abrir o arquivo "pubspec.yaml" executar o comando 
   
 - Registrando novo trailer
   
-  <img width="400" height="780" src="https://github.com/Gabrielcavd/mobflix/blob/main/lib/Assets/registringVideo.gif">
+  <img width="400" height="790" src="https://github.com/Gabrielcavd/mobflix/blob/main/lib/Assets/registringVideo.gif">
   
 - Editando e deletando trailer
   
-  <img width="400" height="780" src="https://github.com/Gabrielcavd/mobflix/blob/main/lib/Assets/editAndDelete.gif">
+  <img width="400" height="790" src="https://github.com/Gabrielcavd/mobflix/blob/main/lib/Assets/editAndDelete.gif">
   
 - Rodando trailer
   
-  <img width="400" height="780" src="https://github.com/Gabrielcavd/mobflix/blob/main/lib/Assets/playing.gif">
+  <img width="400" height="790" src="https://github.com/Gabrielcavd/mobflix/blob/main/lib/Assets/playing.gif">
   
 - Filtrando por categoria
   
-  <img width="400" height="780" src="https://github.com/Gabrielcavd/mobflix/blob/main/lib/Assets/filter.gif">
+  <img width="400" height="790" src="https://github.com/Gabrielcavd/mobflix/blob/main/lib/Assets/filter.gif">
   
