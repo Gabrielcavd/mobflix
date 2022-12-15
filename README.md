@@ -10,3 +10,4 @@ Quando abrir o projeto, basta abrir o arquivo "pubspec.yaml" executar o comando 
 
 ### Preview
 
+![homePage](https://github.com/Gabrielcavd/mobflix/blob/main/lib/Assets/homePage.png) 
